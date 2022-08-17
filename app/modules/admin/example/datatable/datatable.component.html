@@ -1,0 +1,66 @@
+
+
+        <!-- CONTENT GOES HERE -->
+        <!-- <div class="h-400 min-h-400 max-h-400 border-2 border-dashed border-gray-300 rounded-2xl"> -->
+
+
+   <table mat-table [dataSource]="juniordataList" matSort     class="mat-elevation-z8">
+  
+  <ng-container matColumnDef="payeeName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >
+        Payee
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.payeeName}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="childName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+      Child
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.childName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="weekvalue_3">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+      3 Weeks
+    </th>
+    <td mat-cell *matCellDef="let element">$ {{element.weekvalue_3}} </td>
+  </ng-container>
+  <ng-container matColumnDef="weekvalue_2">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >2 Weeks</th>
+    <td mat-cell *matCellDef="let element">$ {{element.weekvalue_2}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="weekvalue_1">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >1 Weeks</th>
+    <td mat-cell *matCellDef="let element">$ {{element.weekvalue_1}} </td>
+  </ng-container>
+  <ng-container matColumnDef="current">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Current</th>
+    <td mat-cell *matCellDef="let element">$ {{element.current}} </td>
+  </ng-container>
+  <ng-container matColumnDef="pending">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Pending Amount</th>
+    <td mat-cell *matCellDef="let element">$ {{element.pending}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="over">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Over Payment</th>
+    <td mat-cell *matCellDef="let element">$ {{element.over}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pendingcreditNote">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Pending Credit Note</th>
+    <td mat-cell *matCellDef="let element">$ {{element.pendingcreditNote}} </td>
+  </ng-container>
+  <ng-container matColumnDef="totalPending">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Total Pending</th>
+    <td mat-cell *matCellDef="let element">$ {{element.totalPending}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [length]="resultsLength" [pageSize]="15" aria-label="Select page of GitHub search results"></mat-paginator>
+        <!-- </div> -->
+

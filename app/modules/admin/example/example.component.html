@@ -1,0 +1,52 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <!-- CONTENT GOES HERE -->
+        <div class="container">
+          <div style="height:8%; ">
+            <form [formGroup]="juniorsearchobj" (ngSubmit)="onSearch()">
+                <mat-form-field>
+                  <mat-label>Select payee</mat-label>
+                  <mat-select formControlName="payeeName" placeholder="Payee"> 
+                    <mat-option *ngFor="let payee of Payees"  [value]="payee"> {{payee}}</mat-option></mat-select> 
+                </mat-form-field>
+                &nbsp;&nbsp;
+                <mat-form-field>
+                  <mat-label>Select child</mat-label>
+                  <mat-select formControlName="childName" ><mat-option *ngFor="let child of Childs" [value]="child"> {{child}}</mat-option></mat-select>
+                </mat-form-field>
+                <div style="float:right ">
+                <button mat-raised-button class="mat-focus-indicator ml-4 ng-tns-c237-202 mat-flat-button mat-button-base mat-primary">Search</button>
+                <button mat-raised-button type="button" class="mat-focus-indicator ml-4 ng-tns-c237-202 mat-flat-button mat-button-base mat-danger" (click)="resetForm()">Reset</button>
+              </div>
+              <br/>
+               <mat-form-field>
+                <mat-label>Start  date</mat-label>
+                  <input matInput [matDatepicker]="picker"  formControlName="startDate">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+             &nbsp;&nbsp;&nbsp;
+              <mat-form-field>
+                <mat-label>End  date</mat-label>
+                  <input matInput [matDatepicker]="pickerend"  formControlName="endDate">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="pickerend"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerend></mat-datepicker>
+              </mat-form-field>
+
+              </form> 
+            </div> 
+            <div style="height:70%;">
+                 <app-datatable [juniordataList]="juniordataList"></app-datatable> 
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
